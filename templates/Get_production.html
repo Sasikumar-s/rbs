@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="get_production"  method="POST">
+      	{% csrf_token %}
+        <div class="info">
+        	 <select name="gt">
+        	 	{% for i in value %}
+            <option>{{i.Batch_name}}</option>
+            {% endfor %}
+          </select>
+          <input type="submit">
+        </div></form>
+{% for i in data %}
+<h3>{{i.Trays}}</h3>
+{% endfor %}
+{% endblock %}

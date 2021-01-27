@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form action="batch_html" method="POST">
+  {% csrf_token %}
+        <div class="info">
+          <input class="fname" type="text" name="batch_name1" placeholder="Batch Name">
+          <input type="number" name="total_chick" placeholder="Total Count">
+          <input type="number" name="chick_arrived" placeholder="Chick arrived">
+          <input type="date" name="arrived_date" placeholder="Arrived Date">
+          <input type="time" name="arrived_time" placeholder=" Arrived Time">
+          <input type="text" name="matralry" placeholder="Matralty">
+          <input type="submit" name="save">
+      </div>
+      </form>
+
+{% endblock %}

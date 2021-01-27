@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Production Upload</title>
+</head>
+<body>
+	<form method="POST" action="done">
+		{% csrf_token %}
+	<select name="bt_name" id="cars">
+	{% for i in value%}
+ <option value="{{i.Batch_name}}">{{i.Batch_name}}</option>
+{% endfor %}
+</select>
+<input type="text" name="count">
+<br>
+<input type="submit" name="save">
+
+</form>
+
+</body>
+</html>
