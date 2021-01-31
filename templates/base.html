@@ -4,13 +4,13 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="icon" type="image/png" href="https://drive.google.com/file/d/1D6PVeYauFHaC0eW8TjOHXKyv-WCb7w7O/view?usp=sharing"/>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>RBS Poultry Form</title>
   </head>
-  <body>
+  <div class="bg-success">  <body style="background-color: #198754">
     <div class="text-center p-3 mb-2 bg-primary text-white" >
     <h1>RBS POULTRY FORM</h1></div>
  {% if user.is_authenticated %}
@@ -19,19 +19,22 @@
 
         <p>Hello, {{user.username}}</p>
       </li>
-  <form action="logout"  class="text-center">
-    <button class="btn btn-outline-success" type="submit">logout</button></form>
+<div class="row">
+     <form action="index"  class="text-center col">
+    <button class="btn btn-outline-success" type="submit">Home</button></form>   
+  <form action="logout"  class="text-center col">
+    <button class="btn btn-outline-danger" type="submit">logout</button></form></div>
 </nav>
 {% endif %}
 
 
 
-<div class="bg-warning text-white">
+<div class="bg-success text-white">
   {% block content %}
 
   {% endblock %}
 
 </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-  </body>
+  </body></div>
 </html>

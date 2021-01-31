@@ -2,17 +2,75 @@
 
 {% block content %}
 
-<form action="batch_html" method="POST">
+
+
+
+
+
+
+<form class="bg-success text-white" action="batch_html" method="POST">
   {% csrf_token %}
-        <div class="info">
-          <input class="fname" type="text" name="batch_name1" placeholder="Batch Name">
-          <input type="number" name="total_chick" placeholder="Total Count">
-          <input type="number" name="chick_arrived" placeholder="Chick arrived">
-          <input type="date" name="arrived_date" placeholder="Arrived Date">
-          <input type="time" name="arrived_time" placeholder=" Arrived Time">
-          <input type="text" name="matralry" placeholder="Matralty">
-          <input type="submit" name="save">
-      </div>
-      </form>
+
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col col-lg-7"><br>
+<div class="form-floating mb-3">
+  <input type="text" name="batch_name1" class="form-control" id="floatingInput" placeholder="Batch Name">
+  <label for="floatingInput" class="text-primary">Batch Name</label>
+</div>
+</div>
+</div>
+</div>
+
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col col-lg-7">
+<div class="form-floating mb-3">
+  <input type="number" name="total_chick" class="form-control" id="floatingInput" placeholder="Total order chick">
+  <label for="floatingInput" class="text-primary" >Total order chick</label>
+</div>
+</div>
+</div>
+</div>
+
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col col-lg-7">
+<div class="form-floating mb-3">
+  <input type="number" name="chick_arrived" class="form-control" id="floatingInput" placeholder="Chick Arrived">
+  <label for="floatingInput" class="text-primary">Chick Arriverd</label>
+</div></div></div></div>
+
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col col-lg-7">
+<div class="form-floating mb-3">
+  <input type="date" name="arrived_date" class="form-control" id="floatingInput" placeholder="Arriverd Date">
+  <label for="floatingInput" class="text-primary">Arriverd Date</label>
+</div></div></div></div>
+
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col col-lg-7">
+<div class="form-floating mb-3">
+  <input type="time" name="arrived_time" class="form-control" id="floatingInput" placeholder="Arriverd Time">
+  <label for="floatingInput" class="text-primary">Arriverd Time</label>
+</div></div></div></div>
+
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col col-lg-7">
+<div class="form-floating mb-3">
+  <input type="number" name="matralry" class="form-control" id="floatingInput" placeholder="Matralty">
+  <label for="floatingInput" class="text-primary">Matralty Count</label>
+</div></div></div></div>
+
+<br>
+
+<div class="text-center">
+  <button type="submit" class="btn btn-info mb-3">Upload</button>
+</div>
+</form>
+
 
 {% endblock %}

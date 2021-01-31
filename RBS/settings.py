@@ -26,7 +26,7 @@ SECRET_KEY = 'd92%l39ju$ez4v9$9rob$_rbpj%lhw1f^&e1cl37an_jz&w$p#'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+#ALLOWED_HOSTS = ['sasikumar.pythonanywhere.com']
 import os
 # Application definition
 
@@ -81,6 +81,11 @@ DATABASES = {
         'PASSWORD':'',
         'HOST':'localhost',
         'USER':'root'
+        
+        #'NAME':'rbspoultry',
+        #'PASSWORD':'nopassword@sk09',
+        #'HOST' :'sasikumar.mysql.pythonanywhere-services.com',
+        #'USER':'sasikumar'
     }
 }
 

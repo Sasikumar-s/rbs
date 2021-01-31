@@ -4,6 +4,10 @@
 
 <form class="bg-success text-white" action="production_upload" method="POST">
   {% csrf_token %}
+  <br>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col col-lg-7">
 <div class="form-floating mb-3">
   <select name="bt_name" class="form-select" id="floatingSelect" aria-label="Floating label select example">
     <option selected>Open this select menu</option>
@@ -13,27 +17,39 @@
     {% endfor %}
   </select>
   <label for="floatingSelect">Select Batch</label>
-</div>
+</div></div></div></div>
 
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col col-lg-7">
 <div class="form-floating mb-3">
   <input type="number" name="production" class="form-control" id="floatingInput" placeholder="Trays">
   <label for="floatingInput" class="text-primary">Trays</label>
-</div>
+</div></div></div></div>
 
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col col-lg-7">
 <div class="form-floating mb-3">
   <input type="number" name="feed" class="form-control" id="floatingInput" placeholder="Feed in KG">
   <label for="floatingInput" class="text-primary" >Feed consume</label>
-</div>
+</div></div></div></div>
 
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col col-lg-7">
 <div class="form-floating mb-3">
   <input type="text" name="medicine" class="form-control" id="floatingInput" placeholder="Medicine name">
   <label for="floatingInput" class="text-primary">Medicine</label>
-</div>
+</div></div></div></div>
 
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col col-lg-7">
 <div class="form-floating mb-3">
   <input type="number" name="matralry" class="form-control" id="floatingInput" placeholder="Matralty">
   <label for="floatingInput" class="text-primary">Matralty Count</label>
-</div>
+</div></div></div></div>
 <br>
 
 <div class="text-center">

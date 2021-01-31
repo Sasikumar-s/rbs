@@ -10,7 +10,6 @@ def login(request):
 		un = request.POST['uname']
 		ps = request.POST['pass']
 		user = auth.authenticate(username = un, password = ps)
-
 		if user is not None:
 			auth.login(request,user)
 			return redirect('index_reload')
@@ -24,57 +23,77 @@ def logout(request):
 	return redirect('login_reload')
 
 def run_new_batch(request):
-	return render(request,'Batch_entry.html')
+	if request.user.is_authenticated:
+		return render(request,'Batch_entry.html')
+	else:
+		return redirect('login_reload')
 
 def index(request):
-	return render(request,'index.html')
+	if request.user.is_authenticated:
+		return render(request,'index.html')
+	else:
+		return redirect('login_reload')
 
 
 def batch_uploads(request):
-	if request.method=='POST':
-		a = request.POST['batch_name1']
-		b = request.POST['total_chick']
-		c = request.POST['chick_arrived']
-		d = request.POST['arrived_date']
-		e = request.POST['arrived_time']
-		f = request.POST['matralry']
-		query = Batch_entry.objects.create(Batch_name=a,Quantity= b,Chick_arrived = c,Arrived_date = d, Arrived_time=e, Matralty = f)
-		query.save()
-		
-		return redirect('index_reload')
-		#return redirect('accounts')
-	else:
-		return HttpResponse("Not stored")
+	if request.user.is_authenticated:
+		if request.method=='POST':
+			a = request.POST['batch_name1']
+			b = request.POST['total_chick']
+			c = request.POST['chick_arrived']
+			d = request.POST['arrived_date']
+			e = request.POST['arrived_time']
+			f = request.POST['matralry']
+			query = Batch_entry.objects.create(Batch_name=a,Quantity= b,Chick_arrived = c,Arrived_date = d, Arrived_time=e, Matralty = f)
+			query.save()
+			
+			return redirect('index_reload')
+			#return redirect('accounts')
+		else:
+			return HttpResponse("Not stored")
 
-	return render (request,'batch_upload.html')
+		return render (request,'batch_upload.html')
+	else:
+		return redirect('login_reload')
 
 def home(request):
-	#pass
-	data = Batch_entry.objects.all()
-	return render(request,'production_entry.html',{'value':data})
+	if request.user.is_authenticated:
+		data = Batch_entry.objects.all()
+		return render(request,'production_entry.html',{'value':data})
+	else:
+		return redirect('login_reload')
 	
 def production(request):
-	if request.method=='POST':
-		a = request.POST['bt_name']
-		b = request.POST['production']
-		c = request.POST['feed']
-		d= request.POST['medicine']
-		e = request.POST['matralry']
-		query = Production.objects.create(Batch_detail= Batch_entry.objects.get(Batch_name = a),Trays= b, Feed = c,Medicine = d, Matralty_on_days = e)
-		query.save()
-		print('Date stored')
-		return redirect('production_reload')
-		
+	if request.user.is_authenticated:
+		if request.method=='POST':
+			a = request.POST['bt_name']
+			b = request.POST['production']
+			c = request.POST['feed']
+			d= request.POST['medicine']
+			e = request.POST['matralry']
+			query = Production.objects.create(Batch_detail= Batch_entry.objects.get(Batch_name = a),Trays= b, Feed = c,Medicine = d, Matralty_on_days = e)
+			query.save()
+			print('Date stored')
+			return redirect('production_reload')
+			
+		else:
+			return HttpResponse('Data not stored')
+		return render (request,'production_entry.html')
 	else:
-		return HttpResponse('Data not stored')
-	return render (request,'production_entry.html')
+		return redirect('login_reload')
 
 def select_batch(request):
-	data = Batch_entry.objects.all()
-	return render(request,'Get_production.html',{'value': data})
+	if request.user.is_authenticated:
+		data = Batch_entry.objects.all()
+		return render(request,'Get_production.html',{'value': data})
+	else:
+		return redirect('login_reload')
 
 def get_production(request):
-	if request.method=='POST':
-		selected = request.POST['gt']
-		query = Production.objects.filter(selected)
-		return render(request,'Get_production.html',{'data':query})
+	if request.user.is_authenticated:
+		if request.method=='POST':
+			selected = request.POST['gt']
+			query = Production.objects.filter(selected)
+			return render(request,'Get_production.html',{'data':query})
+	else:
+		return redirect('login_reload')
