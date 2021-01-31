@@ -82,7 +82,7 @@ DATABASES = {
         'HOST':'localhost',
         'USER':'root'
         
-        #'NAME':'rbspoultry',
+        #'NAME':'sasikumar$rbspoultry',
         #'PASSWORD':'nopassword@sk09',
         #'HOST' :'sasikumar.mysql.pythonanywhere-services.com',
         #'USER':'sasikumar'

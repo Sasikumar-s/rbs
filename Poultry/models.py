@@ -17,5 +17,6 @@ class Production(models.Model):
 	Medicine = models.CharField(max_length=50)
 	Matralty_on_days = models.IntegerField(default = 0)
 
+
 	
 
