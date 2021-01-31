@@ -25,8 +25,8 @@ SECRET_KEY = 'd92%l39ju$ez4v9$9rob$_rbpj%lhw1f^&e1cl37an_jz&w$p#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-#ALLOWED_HOSTS = ['sasikumar.pythonanywhere.com']
+#ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['sasikumar.pythonanywhere.com']
 import os
 # Application definition
 
@@ -77,15 +77,15 @@ WSGI_APPLICATION = 'RBS.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'test',
-        'PASSWORD':'',
-        'HOST':'localhost',
-        'USER':'root'
+        #'NAME': 'test',
+        #'PASSWORD':'',
+        #'HOST':'localhost',
+        #'USER':'root'
         
-        #'NAME':'sasikumar$rbspoultry',
-        #'PASSWORD':'nopassword@sk09',
-        #'HOST' :'sasikumar.mysql.pythonanywhere-services.com',
-        #'USER':'sasikumar'
+        'NAME':'sasikumar$rbspoultry',
+        'PASSWORD':'nopassword@sk09',
+        'HOST' :'sasikumar.mysql.pythonanywhere-services.com',
+        'USER':'sasikumar'
     }
 }
 
