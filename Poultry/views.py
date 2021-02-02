@@ -92,8 +92,28 @@ def select_batch(request):
 def get_production(request):
 	if request.user.is_authenticated:
 		if request.method=='POST':
-			selected = request.POST['gt']
-			query = Production.objects.filter(selected)
-			return render(request,'Get_production.html',{'data':query})
+			selected = request.POST['bt_name']
+			query = Production.objects.filter(Batch_detail=selected)
+			return render(request,'show_production.html',{'data':query})
+		else:
+			return HttpResponse("something went to wrong")
+	else:
+		return redirect('login_reload')
+
+def show_batch_id(request):
+	if request.user.is_authenticated:
+		data = Batch_entry.objects.all()
+		return render(request,'show_batch.html',{'value':data})
+	else:
+		return redirect('login_reload')
+
+def batch_details(request):
+	if request.user.is_authenticated:
+		if request.method=='POST':
+			selected = request.POST['bt_name']
+			query = Batch_entry.objects.filter(Batch_name=selected)
+			return render(request,'batch_details.html',{'value':query})
+		else:
+			return HttpResponse("something wrong")
 	else:
 		return redirect('login_reload')

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for i in value %}
+<br>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col col-lg-7"><br>
+<table class="table table-hover bg-primary table-bordered text-light ">
+  <thead>
+    <tr>
+      <th scope="col" colspan="2" class="text-warning text-center">BATCH DETAILS</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Batch name</th>
+      <td>{{i.Batch_name}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Chick ordered</th>
+      <td>{{i.Quantity}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Chick arrived</th>
+      <td>{{i.Chick_arrived}}</td>
+    </tr>
+    <tr>
+    	<th scope="row">Arrived Date</th>
+    	<td>{{i.Arrived_date}}</td>
+    </tr>
+    <tr>
+    	<th scope="row">Arrived Time</th>
+    	<td>{{i.Arrived_time}}</td>
+    </tr>
+    <tr>
+    	<th scope="row">Matralty</th>
+    	<td>{{i.Matralty}}</td>
+    </tr>
+  </tbody>
+</table></div></div></div>
+
+
+{% endfor %}<br>
+<form action="show_batch_id" class="text-center">
+<button type="submit" class="btn btn-danger">Back</button></form><br>
+{% endblock %}
+
+
