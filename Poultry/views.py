@@ -39,12 +39,13 @@ def batch_uploads(request):
 	if request.user.is_authenticated:
 		if request.method=='POST':
 			a = request.POST['batch_name1']
-			b = request.POST['total_chick']
-			c = request.POST['chick_arrived']
+			b = int(request.POST['total_chick'])
+			c = int(request.POST['chick_arrived'])
 			d = request.POST['arrived_date']
 			e = request.POST['arrived_time']
-			f = request.POST['matralry']
-			query = Batch_entry.objects.create(Batch_name=a,Quantity= b,Chick_arrived = c,Arrived_date = d, Arrived_time=e, Matralty = f)
+			f = int(request.POST['matralry'])
+			g = c-f
+			query = Batch_entry.objects.create(Batch_name=a,Quantity= b,Chick_arrived = c,Arrived_date = d, Arrived_time=e, Matralty = f,Live_birds = g)
 			query.save()
 			
 			return redirect('index_reload')
@@ -71,7 +72,8 @@ def production(request):
 			c = request.POST['feed']
 			d= request.POST['medicine']
 			e = request.POST['matralry']
-			query = Production.objects.create(Batch_detail= Batch_entry.objects.get(Batch_name = a),Trays= b, Feed = c,Medicine = d, Matralty_on_days = e)
+			f = request.POST['date']
+			query = Production.objects.create(Batch_detail= Batch_entry.objects.get(Batch_name = a),Trays= b, Feed = c,Medicine = d, Matralty_on_days = e,Date = f)
 			query.save()
 			print('Date stored')
 			return redirect('production_reload')
@@ -81,6 +83,7 @@ def production(request):
 		return render (request,'production_entry.html')
 	else:
 		return redirect('login_reload')
+
 
 def select_batch(request):
 	if request.user.is_authenticated:
@@ -92,8 +95,8 @@ def select_batch(request):
 def get_production(request):
 	if request.user.is_authenticated:
 		if request.method=='POST':
-			selected = request.POST['bt_name']
-			query = Production.objects.filter(Batch_detail=selected)
+			selected_batch = request.POST['bt_name']
+			query = Production.objects.filter(Batch_detail=selected_batch)
 			return render(request,'show_production.html',{'data':query})
 		else:
 			return HttpResponse("something went to wrong")
@@ -115,5 +118,17 @@ def batch_details(request):
 			return render(request,'batch_details.html',{'value':query})
 		else:
 			return HttpResponse("something wrong")
+	else:
+		return redirect('login_reload')
+
+def delete_batch(request):
+	if request.user.is_authenticated:
+		if request.models=='POST':
+			selected = request.POST['bt_name']
+			query = Batch_entry.objects.filter(Batch_entry=selected)
+			query.delete()
+			return redirect('show_batch_id_reload')
+		else:
+			return HttpResponse("something went to wrong")
 	else:
 		return redirect('login_reload')

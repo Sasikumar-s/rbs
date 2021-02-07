@@ -7,6 +7,7 @@ class Batch_entry(models.Model):
 	Arrived_date = models.DateField()
 	Arrived_time = models.TimeField()
 	Matralty = models.IntegerField()
+	Live_birds = models.IntegerField(default=0)
 	def __str__(self):
 		return self.Batch_name
 
@@ -16,6 +17,7 @@ class Production(models.Model):
 	Feed = models.IntegerField()
 	Medicine = models.CharField(max_length=50)
 	Matralty_on_days = models.IntegerField(default = 0)
+	Date = models.DateField(default=None)
 
 
 	

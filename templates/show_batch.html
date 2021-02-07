@@ -22,6 +22,13 @@
   <div class="text-center">
   <button type="submit" class="btn btn-info mb-3">Show</button>
 </div>
+<form class="bg-success text-white" action="delete_id" method="POST">
+  {% csrf_token %}
+  
+  <div class="text-center">
+  <button type="submit" class="btn btn-info mb-3">Delete</button>
+</div>
+</form>
 
 </div></div></div></div></form>
 

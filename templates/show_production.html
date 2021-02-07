@@ -1,5 +1,27 @@
-{% for i in value %}
 
-<p>{{i.Trays}}</p>
+{% extends 'base.html' %}
+{% block content %}
+<table class="table table-hover table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Trays</th>
+      <th scope="col">Feed</th>
+      <th scope="col">Matralty</th>
+      <th scope="col">Medicine</th>
+    </tr>
+  </thead>
+  {% for i in data %}
+  <tbody>
+    <tr>
+      <th scope="row">{{i.Date}}</th>
+      <td>{{i.Trays}}</td>
+      <td>{{i.Feed}}</td>
+      <td>{{i.Matralty_on_days}}</td>
+      <td>{{i.Medicine}}</td>
+    </tr>
+  </tbody>
+  {% endfor %}
+</table>
 
-{% endfor %}
+{% endblock %}
